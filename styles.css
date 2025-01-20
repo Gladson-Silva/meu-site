@@ -1,0 +1,129 @@
+/* Estilos Gerais */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black url('image/fundo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Mais transparência */
+    z-index: -1;
+}
+
+h1, h2 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+.handwriting {
+    font-size: 3rem;
+    color: #e984db;
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    max-width: 100%;
+    height: 600px; /* Aumentei a altura para 600px */
+    overflow: hidden;
+}
+
+.slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajuste para que a imagem se ajuste sem cortar */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow img.active {
+    opacity: 1;
+}
+
+/* Contador */
+.counter {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 1.5rem;
+    color: #b4adad;
+}
+
+/* Texto Personalizado */
+.custom-text {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+    font-size: 1.2rem;
+}
+
+/* Chuva de Emojis */
+.emoji-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: fall 4s linear infinite, fadeIn 1s ease-out forwards;
+}
+
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .slideshow {
+        height: 400px; /* Ajuste a altura para telas menores */
+    }
+
+    .slideshow img {
+        object-fit: contain;
+    }
+
+    .handwriting {
+        font-size: 2rem;
+    }
+
+    .counter {
+        font-size: 1.2rem;
+    }
+
+    .custom-text {
+        font-size: 1rem;
+    }
+}
